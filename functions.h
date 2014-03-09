@@ -10,7 +10,7 @@ struct Country
 
 };
 
-void intro(struct Country *ar, int n);
+void intro(struct Country *ar, int i0, int n);
 
 void outro(struct Country *ar, int n);
 

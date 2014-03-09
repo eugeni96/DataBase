@@ -5,9 +5,9 @@
 
 using namespace std;
 
-void intro(struct Country *ar, int n)
+void intro(struct Country *ar, int i0, int n)
 {
-    for(int i=0; i<n; i++)
+    for(int i=i0; i<i0+n; i++)
     {
         cout<<"Enter country"<<endl;
         cin.ignore();
@@ -20,7 +20,6 @@ void intro(struct Country *ar, int n)
         cin.ignore();
         cout<<"Enter GDP"<<endl;
         cin>>ar[i].VVP;
-
     }
 }
 
@@ -46,7 +45,8 @@ void sortingNameAZ (struct Country *A, int a, int b)
     n=b;
     k=A[(a+b)/2].name;
     Country t;
-    do {
+    do
+    {
         while (strcmp(A[m].name,k)<0)
             m++;
         while (strcmp(A[n].name,k)>0)
@@ -77,7 +77,8 @@ void sortingNameZA (struct Country *A, int a, int b)
     n=b;
     k=A[(a+b)/2].name;
     Country t;
-    do {
+    do
+    {
         while (strcmp(A[m].name,k)>0)
             m++;
         while (strcmp(A[n].name,k)<0)
@@ -108,7 +109,8 @@ void sortingPopYbiv (struct Country *A, int a, int b)
     n=b;
     k=A[(a+b)/2].population;
     Country t;
-    do {
+    do
+    {
         while (A[m].population>k)
             m++;
         while (A[n].population<k)
@@ -139,7 +141,8 @@ void sortingPopVozrast (struct Country *A, int a, int b)
     n=b;
     k=A[(a+b)/2].population;
     Country t;
-    do {
+    do
+    {
         while (A[m].population<k)
             m++;
         while (A[n].population>k)
@@ -171,7 +174,8 @@ void sortingSqrVozrast (struct Country *A, int a, int b)
     n=b;
     k=A[(a+b)/2].sqr;
     Country t;
-    do {
+    do
+    {
         while (A[m].sqr<k)
             m++;
         while (A[n].sqr>k)
@@ -202,7 +206,8 @@ void sortingSqrYbiv (struct Country *A, int a, int b)
     n=b;
     k=A[(a+b)/2].sqr;
     Country t;
-    do {
+    do
+    {
         while (A[m].sqr>k)
             m++;
         while (A[n].sqr<k)
@@ -233,7 +238,8 @@ void sortingGDPVozrast (struct Country *A, int a, int b)
     n=b;
     k=A[(a+b)/2].VVP;
     Country t;
-    do {
+    do
+    {
         while (A[m].VVP<k)
             m++;
         while (A[n].VVP>k)
@@ -265,7 +271,8 @@ void sortingGDPYbiv (struct Country *A, int a, int b)
     n=b;
     k=A[(a+b)/2].VVP;
     Country t;
-    do {
+    do
+    {
         while (A[m].VVP>k)
             m++;
         while (A[n].VVP<k)
