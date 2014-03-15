@@ -6,33 +6,28 @@ struct Country
     char name[20];
     double sqr;
     unsigned long int population;
-    unsigned long int VVP;
+    unsigned long int GDP;
 
 };
+
 
 void intro(struct Country *ar, int i0, int n);
 
 void outro(struct Country *ar, int n);
 
-void control(struct Country *ar, int n);
+int sortPop (struct Country A, struct Country B);
 
-void sortingPopYbiv (struct Country *A, int a, int b);
+int sortSqr (struct Country A, struct Country B);
 
-void sortingPopVozrast (struct Country *A, int a, int b);
+int sortGDP (struct Country A, struct Country B);
 
-void sortingSqrVozrast (struct Country *A, int a, int b);
+int sortName(struct Country A, struct Country B);
 
-void sortingSqrYbiv (struct Country *A, int a, int b);
+void sortingV (struct Country *A, int a, int b, int (*fptr)(Country,Country));
 
-void sortingGDPVozrast (struct Country *A, int a, int b);
+void sortingY (struct Country *A, int a, int b, int (*fptr)(Country,Country));
 
-void sortingGDPYbiv (struct Country *A, int a, int b);
-
-void sortingNameAZ (struct Country *A, int a, int b);
-
-void sortingNameZA (struct Country *A, int a, int b);
-
-
+void mysort (struct Country *A, int elements, int (*fptr)(Country,Country), bool vozrast);
 
 #endif // FUNCTIONS_H_
 

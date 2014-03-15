@@ -5,7 +5,7 @@
 using namespace std;
 
 
-void control(struct Country *ar, int n)
+void control(struct Country *ar, int n, int (**pointers)(Country,Country))
 {
     fstream mystream;
     int vvod=1;
@@ -67,35 +67,35 @@ void control(struct Country *ar, int n)
         }
         if(vvod==6)
         {
-            sortingNameAZ(ar,0,elements-1);
+            mysort(ar,elements, pointers[0],true);
         }
         if(vvod==7)
         {
-            sortingNameZA(ar,0,elements-1);
+            mysort(ar,elements, pointers[0],false);
         }
         if(vvod==8)
         {
-            sortingSqrVozrast(ar,0,elements-1);
+            mysort(ar,elements, pointers[1],true);
         }
         if(vvod==9)
         {
-            sortingSqrYbiv(ar,0,elements-1);
+mysort(ar,elements, pointers[1],false);
         }
         if(vvod==10)
         {
-            sortingPopVozrast(ar,0,elements-1);
+            mysort(ar,elements, pointers[2],true);
         }
         if(vvod==11)
         {
-            sortingPopYbiv(ar,0,elements-1);
+mysort(ar,elements, pointers[2],false);
         }
         if(vvod==12)
         {
-            sortingGDPVozrast(ar,0,elements-1);
+            mysort(ar,elements, pointers[3],true);
         }
         if(vvod==13)
         {
-            sortingGDPYbiv(ar,0,elements-1);
+mysort(ar,elements, pointers[3],false);
         }
         if(vvod==14)
         {
@@ -129,10 +129,22 @@ int main()
         <<"Dlya sort po GDP po ybiv vvedite - 13"<<endl
         <<"Dlya sohraneniya v fail vvedite - 14"<<endl;
 
+
+    typedef int (*funcPointer)(Country,Country);
+    funcPointer *pointers;
+    pointers = new funcPointer[4];
+    pointers[0] = sortName;
+    pointers[1] = sortSqr;
+    pointers[2] = sortPop;
+    pointers[3] = sortGDP;
     Country *ar;
     const int n=20;
     ar = new Country[n];
-    control(ar,n);
+    control(ar,n,pointers);
     delete [] ar;
+    delete [] pointers;
     return 0;
 }
+
+
+
